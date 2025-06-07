@@ -1,0 +1,371 @@
+\documentclass[11pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=2cm, % seperation between body and page edge from the top
+    bottom=2cm, % seperation between body and page edge from the bottom
+    left=2cm, % seperation between body and page edge from the left
+    right=2cm, % seperation between body and page edge from the right
+    footskip=1.0cm, % seperation between body and footer
+]{geometry}
+\usepackage{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{10, 10, 10} % define primary color
+\definecolor{secondaryColor}{RGB}{20, 20, 20} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={Yuta Ono},
+    pdfauthor={Yuta Ono},
+    pdfcreator={LaTeX},
+    colorlinks=true,
+    urlcolor=secondaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+\usepackage[en-US]{datetime2}
+
+% fonts
+\usepackage[T1]{fontenc}
+\usepackage{stix}
+
+% Some settings:
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0.15cm} % set column seperation
+\pagenumbering{gobble} % no page numbering
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\Large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.3cm
+}{
+    % bottom space:
+    0.2cm
+} % section title spacing
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10cm,
+        parsep=0.10cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10cm,
+        parsep=0.10cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001cm
+    }{
+        0 cm + 0.00001cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 3.5cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for three column entries
+
+\newenvironment{header}{
+  \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+  \par\kern\topsep
+} % new environment for the header
+
+\DTMlangsetup{showdayofmonth=false}
+\newcommand{\placelastupdatedtext}{
+  \AddToShipoutPictureFG*{
+    \put(
+      \LenToUnit{\paperwidth-2cm+0.05cm},
+      \LenToUnit{\paperheight-0.50cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+      \small\color{gray}\textit{Last updated in \today}\hspace{\widthof{Last updated in \today}}
+    }}}
+  }
+}
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+\begin{document}
+  \newcommand{\AND}{\unskip
+    \cleaders\copy\ANDbox\hskip\wd\ANDbox
+    \ignorespaces
+  }
+  \newsavebox\ANDbox
+  \sbox\ANDbox{$|$}
+
+  \begin{header}
+    \fontsize{25 pt}{25 pt}\selectfont Yuta Ono
+  
+    \vspace{5 pt}
+    \normalsize
+    \mbox{Tokyo, Japan}%
+    \kern 5.0 pt%
+    \AND%
+    \kern 5.0 pt%
+    \mbox{\hrefWithoutArrow{mailto:youcana40627@gmail.com}{youcana40627@gmail.com}}%
+    \kern 5.0 pt%
+    \AND%
+    \kern 5.0 pt%
+    \mbox{\hrefWithoutArrow{https://youcan-jpn.github.io/}{https://youcan-jpn.github.io/}}%
+  \end{header}
+
+  \placelastupdatedtext
+
+  \vspace{5pt}
+  \section{Education}
+    \begin{twocolentry}{Apr 2023 -- Present}
+      Department of Information Physics and Computing,
+      Graduate School of Information Science and Technology,
+      \textbf{The University of Tokyo}, Japan
+    \end{twocolentry}
+    \vspace{0.10 cm}
+    \begin{onecolentry}
+      \begin{highlights}
+        \item Master of Information Science and Technology
+        \item GPA: 4.0/4.0 
+      \end{highlights}
+    \end{onecolentry}
+    \vspace{0.25cm}
+    \begin{twocolentry}{Sep 2023 -- Aug 2024}
+      Department of Information Technology and Electrical Engineering,
+      \textbf{ETH Zurich}, Switzerland
+    \end{twocolentry}
+    \vspace{0.10cm}
+    \begin{onecolentry}
+      \begin{highlights}
+        \item Exchange Student
+        \item GPA: 5.5/6.0
+      \end{highlights}
+    \end{onecolentry}
+    \vspace{0.25cm}
+    \begin{twocolentry}{Apr 2019 -- Mar 2023}
+      Department of Mathematical Engineering and Information Physics,\\
+      \textbf{The University of Tokyo}, Japan
+    \end{twocolentry}
+    \vspace{0.10cm}
+    \begin{onecolentry}
+      \begin{highlights}
+        \item Bachelor of Engineering
+        \item GPA: 3.7/4.0
+      \end{highlights}
+    \end{onecolentry}
+
+    \section{International Conferences}
+      \begin{samepage}
+        \begin{twocolentry}{Jul 2025}
+          \textbf{Exploring the possibility of TypiClust for low-budget Federated Active Learning}
+        \end{twocolentry}
+        \begin{onecolentry}
+          \mbox{\textit{\textbf{Yuta Ono}}}, \mbox{Hiroshi Nakamura}, \mbox{Hideki Takase}\\
+          The 49th IEEE International Conference on Computers, Software, and Applications (COMPSAC)
+        \end{onecolentry}
+      \end{samepage}
+      \vspace{0.15 cm}
+      \begin{samepage}
+        \begin{twocolentry}{May 2024}
+          \textbf{SUPClust: Active Learning at the Boundaries}
+        \end{twocolentry}
+        \begin{onecolentry}
+          \mbox{\textit{\textbf{Yuta Ono}}}, \mbox{Till Aczel}, \mbox{Benjamin Estermann}, \mbox{Roger Wattenhofer}\\
+          5th Workshop on practical ML for limited/low resource settings (PML4LRS@ICLR)
+        \end{onecolentry}
+      \end{samepage}
+
+    \section{Domestic Conferences (in Japanese)}
+      \begin{samepage}
+        \begin{twocolentry}{May 2025}
+          \textbf{Evaluation of TypiClust for Federated Active Learning in Low-Budget Regimes}
+        \end{twocolentry}
+        \begin{onecolentry}
+          \mbox{\textit{\textbf{Yuta Ono}}}, \mbox{Hiroshi Nakamura}, \mbox{Hideki Takase}\\
+          Annual Conference of the Japanese Society for Artificial Intelligence (JSAI)
+        \end{onecolentry}
+      \end{samepage}
+      \vspace{0.15cm}
+      \begin{samepage}
+        \begin{twocolentry}{Dec 2024}
+          \textbf{Training Deep Neural Networks for Fast Data Assimilation}
+        \end{twocolentry}
+        \begin{onecolentry}
+          \mbox{\textit{\textbf{Yuta Ono}}}, \mbox{Yuta Tarumi}, \mbox{Keisuke Fukuda}, \mbox{Shin-ichi Maeda}\\
+          Information-Based Induction Sciences and Machine Learning (IBISML)
+        \end{onecolentry}
+      \end{samepage}
+      \vspace{0.15cm}
+      \begin{samepage}
+        \begin{twocolentry}{Jun 2023}
+          \textbf{Trapping of Airborne Objects by Using Camera Tracking in Acoustic Levitation}
+        \end{twocolentry}
+        \begin{onecolentry}
+          \mbox{\textit{\textbf{Yuta Ono}}}, \mbox{Shun Suzuki}, \mbox{Yasutoshi Makino}, \mbox{Nozomi Nishiumi}, \mbox{Hiroyuki Shinoda}\\
+          The Robotics and Mechatronics Conference (ROBOMECH)
+        \end{onecolentry}
+      \end{samepage}
+
+    \section{Awards}
+      \begin{samepage}
+        \begin{twocolentry}{May 2024}
+          \textbf{Certificate of Merit for ROBOMECH Outstanding Research Activity}
+        \end{twocolentry}
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+          \begin{highlights}
+            \item Awarded to authors who have received high evaluations for their research results (\(\sim 0.4\%; 6/1467\))
+          \end{highlights}
+        \end{onecolentry}
+      \end{samepage}
+      \vspace{0.25cm}
+      \begin{samepage}
+        \begin{twocolentry}{May 2024}
+          \textbf{Fellow Award for Outstanding Young Engineers}
+        \end{twocolentry}
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+          \begin{highlights}
+            \item Awarded to young researchers whose work is useful and novel \((\sim 2.8\%; 25/887)\)
+          \end{highlights}
+        \end{onecolentry}
+      \end{samepage}
+
+
+    \section{Scholarships}
+      \begin{samepage}
+        \begin{twocolentry}{Sep 2023 -- Aug 2024}
+          \textbf{UTokyo-TOYOTA Study Abroad Scholarship for the Study and Research in the Field of AI}
+        \end{twocolentry}
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+          \begin{highlights}
+            \item Awarded to only five students who are studying abroad in the field of AI
+            \item JPY 220,000 / month
+          \end{highlights}
+        \end{onecolentry}
+      \end{samepage}
+      \vspace{0.25cm}
+      \begin{samepage}
+        \begin{twocolentry}{Sep 2023 -- Aug 2024}
+          \textbf{Thirty-seventh term scholarship student, INOAC International Education and Scholarship Foundation}
+        \end{twocolentry}
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+          \begin{highlights}
+            \item JPY 100,000 / month
+          \end{highlights}
+        \end{onecolentry}
+      \end{samepage}
+
+    \section{Grants}
+      \begin{samepage}
+        \begin{twocolentry}{Jun 2025 -- Mar 2026}
+          \textbf{AIP Challenge Program}, Japan Science and Technology Agency (JST)
+        \end{twocolentry}
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+          \begin{highlights}
+            \item The AIP Challenge Program aims to support the independence of young researchers
+            \item JPY 1,000,000
+          \end{highlights}
+        \end{onecolentry}
+      \end{samepage}
+
+  \section{Work Experience}
+    \begin{twocolentry}{Oct 2024 -- Present}
+      \textbf{Part-time Researcher}, Preferred Networks inc., Tokyo, Japan
+    \end{twocolentry}
+    \vspace{0.10cm}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Developed a fast data assimilation method based on variational inference
+        \end{highlights}
+    \end{onecolentry}
+    \vspace{0.25cm}
+    \begin{twocolentry}{Aug 2024 -- Sep 2024}
+      \textbf{Research Intern}, Preferred Networks inc., Tokyo, Japan
+      \vspace{0.10 cm}
+      \begin{onecolentry}
+        \begin{highlights}
+          \item Fast data assimilation by deep neural networks
+        \end{highlights}
+      \end{onecolentry}
+    \end{twocolentry}
+    \vspace{0.25cm}
+    \begin{twocolentry}{Feb 2024 -- Apr 2024}
+      \textbf{Teaching Assistant}, ETH Zurich, Switzerland
+      \vspace{0.10 cm}
+      \begin{onecolentry}
+        \begin{highlights}
+          \item ``Hands-on Deep Learning (FS 2024)''
+          \item Skills: Python (PyTorch, PyG)
+        \end{highlights}
+      \end{onecolentry}
+    \end{twocolentry}
+    \vspace{0.25cm}
+    \begin{twocolentry}{Aug 2021 -- Aug 2023}
+      \textbf{Part-time Engineer}, Nagase Brothers Inc., Tokyo, Japan
+      \vspace{0.10 cm}
+      \begin{onecolentry}
+        \begin{highlights}
+          \item Web Backend Engineer
+          \item Designed and built web APIs for internal systems
+          \item Skills: Python, Golang, TypeScript, Docker/Docker~Compose, gRPC, REST~API, Protocol~Buffers, OpenAPI~Specification, MySQL, Ansible, Git, etc.
+        \end{highlights}
+      \end{onecolentry}
+    \end{twocolentry}
+\end{document}
