@@ -1,0 +1,63 @@
+\documentclass[autodetect-engine,dvipdfmx-if-dvi,ja=standard,11pt]{bxjsarticle}
+\usepackage{appendix}
+\usepackage{enumitem}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{geometry}
+\usepackage[breakable, skins, theorems, listingsutf8]{tcolorbox}
+\usepackage[explicit]{titlesec}
+\geometry{left=15mm,right=15mm,top=5mm,bottom=20mm}
+
+\title{現在までの論文，業績一覧表}
+\author{小野 悠太}
+\date{2025年7月}
+
+
+\begin{document}
+\maketitle
+
+\titleformat{name=\section,numberless}[block]{}{\Large\bfseries\gtfamily#1}{10pt}{\titleline[l]{\titlerule[1pt]}\vspace{-20pt}}
+\section*{国際学会における発表（査読あり）}
+
+\begin{enumerate}[leftmargin=!,itemsep=0pt]
+  \renewcommand{\labelenumi}{[\arabic{enumi}]}
+  \item \underline{Yuta Ono}, Hiroshi Nakamura, and Hideki Takase, ``Exploring the possibility of TypiClust for low-budget Federated Active Learning,'' \textit{The 49th IEEE International Conference on Computers, Software, and Applications (COMPSAC 2025)}, Toronto, Canada, July 2025. (Oral with full paper) \label{bib:compsac}
+  \item \underline{Yuta Ono}, Till Aczel, Benjamin Estermann, and Roger Wattenhofer, ``SUPClust: Active Learning at the Boundaries,'' \textit{5th Workshop on practical ML for limited/low resource settings (PML4LRS@ICLR)},Vienna, Austria, May 2024. (poster with short paper) \label{bib:pml4lrs}
+\end{enumerate}
+
+
+\section*{国内学会における発表}
+
+\begin{enumerate}[leftmargin=!,itemsep=0pt,resume]
+  \renewcommand{\labelenumi}{[\arabic{enumi}]}
+  \item 織田悠希，\underline{小野悠太}，中村宏，髙瀬英希，『早期出力を導入した分割学習の拡張に向けた予備評価』，第254回システム・アーキテクチャ研究発表会 (SWoPP2025)，香川，2025年8月．（口頭発表予定） \label{bib:swopp}
+  \item \underline{小野悠太}，中村宏，高瀬英希，『低予算環境での連合能動学習におけるTypiClustの性能評価』，人工知能学会全国大会，大阪，2025年5月.（口頭発表） \label{bib:jsai}
+  \item \underline{小野悠太}，垂水勇太，福田圭祐，前田新一，『深層学習モデルを用いた高速なデータ同化手法』，情報論的学習理論と機械学習研究会， 北海道，2024年12月．（口頭発表） \label{bib:ibisml}
+  \item \underline{小野悠太}，鈴木颯，牧野泰才，西海望，篠田裕之，『超音波空中浮遊における高速カメラを利用した動的物体の制御』，ロボティクス・メカトロニクス講演会2023講演論文集，愛知，2023年6月．（ポスター発表） \label{bib:robomech}
+\end{enumerate}
+
+
+
+\section*{研究グラント}
+\begin{enumerate}[leftmargin=!,itemsep=0pt,resume]
+  \renewcommand{\labelenumi}{[\arabic{enumi}]}
+  \item \underline{小野悠太}，JST 2025年度 AIPチャレンジプログラム（100万円）  \label{bib:aip}
+\end{enumerate}
+
+\section*{受賞}
+\begin{enumerate}[leftmargin=!,itemsep=0pt,resume]
+  \renewcommand{\labelenumi}{[\arabic{enumi}]}
+  \item \underline{小野悠太}，鈴木颯，牧野泰才，西海望，篠田裕之，日本機械学会ROBOMECH表彰（学術研究分野），\\2024年5月． (\(6/1467 \simeq 0.4\%\))  \label{bib:robomech-hyosho}
+  \item \underline{小野悠太}，日本機械学会若手優秀講演フェロー賞，2024年5月． (25/887 \(\simeq\) 2.8\%)  \label{bib:robomech-fellow}
+\end{enumerate}
+
+
+\section*{奨学金}
+\begin{enumerate}[leftmargin=!,itemsep=0pt,resume]
+  \renewcommand{\labelenumi}{[\arabic{enumi}]}
+  \item \underline{小野悠太}，東京大学トヨタ高度人工知能人材育成のための海外留学奨学金 2023年度奨学生  \label{bib:toyota}
+  \item \underline{小野悠太}，公益財団法人イノアック国際教育振興財団 第37期奨学生  \label{bib:inoac}
+\end{enumerate}
+
+\end{document}
