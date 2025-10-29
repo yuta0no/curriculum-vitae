@@ -4,9 +4,9 @@
 \usepackage[
     ignoreheadfoot, % set margins without considering header and footer
     top=2cm, % seperation between body and page edge from the top
-    bottom=2cm, % seperation between body and page edge from the bottom
-    left=2cm, % seperation between body and page edge from the left
-    right=2cm, % seperation between body and page edge from the right
+    bottom=1.5cm, % seperation between body and page edge from the bottom
+    left=1.5cm, % seperation between body and page edge from the left
+    right=1.5cm, % seperation between body and page edge from the right
     footskip=1.0cm, % seperation between body and footer
 ]{geometry}
 \usepackage{titlesec} % for customizing section titles
@@ -151,8 +151,7 @@
   \sbox\ANDbox{$|$}
 
   \begin{header}
-    \fontsize{25 pt}{25 pt}\selectfont Yuta Ono
-  
+    \fontsize{25 pt}{25 pt}\selectfont Yuta Ono\\
     \vspace{5 pt}
     \normalsize
     \mbox{Tokyo, Japan}%
@@ -179,7 +178,7 @@
     \begin{onecolentry}
       \begin{highlights}
         \item Master of Information Science and Technology
-        \item GPA: 4.0/4.0 
+        \item GPA: 4.0/4.0
       \end{highlights}
     \end{onecolentry}
     \vspace{0.25cm}
@@ -208,6 +207,16 @@
     \end{onecolentry}
 
     \section{International Conferences}
+    \begin{samepage}
+        \begin{twocolentry}{Dec 2025}
+          \textbf{Hetero-SplitEE: Split Learning of Neural Networks with Early Exits for Heterogeneous IoT Devices}
+        \end{twocolentry}
+        \begin{onecolentry}
+          \mbox{Yuki Oda}, \mbox{\underline{Yuta Ono}}, \mbox{Hiroshi Nakamura}, \mbox{Hideki Takase}\\
+          The 18th IEEE International Symposium on Embedded Multicore/Many-core Systems-on-Chip (MCSoC)
+        \end{onecolentry}
+      \end{samepage}
+      \vspace{0.15 cm}
       \begin{samepage}
         \begin{twocolentry}{Jul 2025}
           \textbf{\href{https://arxiv.org/abs/2505.19404}{Exploring the possibility of TypiClust for low-budget Federated Active Learning}}
@@ -331,8 +340,21 @@
         \end{onecolentry}
       \end{samepage}
 
-
     \section{Scholarships}
+      \begin{samepage}
+        \begin{twocolentry}{Sep 2026 -- Aug 2028}
+          \textbf{Funai Overseas Scholarship}, Funai Foundation for Information Technology
+        \end{twocolentry}
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+          \begin{highlights}
+            \item USD 36,000 / year (for living expenses)
+            \item USD 14,000 / year (for tuition fees)
+            \item Full coverage for medical insurance
+          \end{highlights}
+        \end{onecolentry}
+      \end{samepage}
+      \vspace{0.25cm}
       \begin{samepage}
         \begin{twocolentry}{Apr 2026 -- Mar 2029}
           \textbf{Doctoral Course Research Fellowships (DC1)}, Japan Society for the Promotion of Science (JSPS)
